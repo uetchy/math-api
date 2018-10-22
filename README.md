@@ -30,7 +30,7 @@ curl https://math.now.sh?from=\sum^{N}_{i}x_i
 ![](https://math.now.sh?from=\LaTeX)
 ```
 
-![](https://math.now.sh?from=\LaTeX)
+![Equation 1](https://math.now.sh?from=\LaTeX)
 
 ## Option
 
