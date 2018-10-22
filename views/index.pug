@@ -31,7 +31,7 @@ html
       h1 Math API
       p Place LaTeX Math equation on anywhere as <code>&lt;img&gt;</code> tag.
       h2 Usage
-      p(style="font-size: 20px") https://math.now.sh?from=<span class="equation">LaTeX Math Equation</span>
+      p(style="font-size: 20px") https://math.now.sh?from=<span class="equation">[LaTeX Math Equation]</span>
       h3 Block notation
       p https://math.now.sh?<span class="notation">from</span>=<span class="equation">\sum^{N}_{i}x_i</span>
       img(src="https://math.now.sh?from=\\sum^{N}_{i}x_i")
@@ -46,18 +46,21 @@ html
       p
         = "<img src=\"https://math.now.sh?"
         <span class="notation">from</span>=
-        | <span class="equation">\log \prod^N_i x_i = \sum^N_i \log x_i</span>
+        | <span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span>
         = "\"/>"
-      <img src="https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i" />
+      <img src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       p
         = "<img src=\"https://math.now.sh?"
         <span class="notation">inline</span>=
-        | <span class="equation">\log \prod^N_i x_i = \sum^N_i \log x_i</span>
+        | <span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span>
         = "\"/>"
-      <img src="https://math.now.sh?inline=\log \prod^N_i x_i = \sum^N_i \log x_i" />
+      <img src="https://math.now.sh?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       
       h2 Markdown Example
-      p ![Equation 1](https://math.now.sh?<span class="notation">from</span>=<span class="equation">\log \prod^N_i x_i = \sum^N_i \log x_i</span>)
+      p ![Equation 1](https://math.now.sh?<span class="notation">from</span>=<span class="equation">\LaTeX</span>)
+      <img src="https://math.now.sh?from=\LaTeX" />
       
-      h2 Contribution
+      h2 Resources
       a(href="https://github.com/uetchy/math-api") Source Code (GitHub)
+      br
+      a(href="https://twitter.com/uetschy") Author (Twitter)
