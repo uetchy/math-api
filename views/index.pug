@@ -1,12 +1,14 @@
 html
   head
     title= title
+    meta(name="viewport" content="width=device-width")
     style
       | body {
       |   display: flex;
       |   justify-content: center;
       | }
       | .main {
+      |   width: auto;
       |   padding: 15px;
       |   margin-bottom: 80px;
       | }
@@ -52,8 +54,7 @@ html
       <img src="https://math.now.sh?inline=\log \prod^N_i x_i = \sum^N_i \log x_i" />
       
       h2 Markdown Example
-      pre
-        | ![Equation 1](https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i)
+      p ![Equation 1](https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i)
       
       h2 Contribution
       a(href="https://github.com/uetchy/math-api") Source Code (GitHub)
