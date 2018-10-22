@@ -1,4 +1,4 @@
-# math API
+# Math API
 
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
@@ -29,3 +29,11 @@ curl https://math.now.sh?from=\sum^{N}_{i}x_i
 ```
 ![](https://math.now.sh?from=LaTeX equation)
 ```
+
+## Option
+
+### **.svg** extension
+
+Params with **.svg** extension will be treated as normal math formula.
+
+Some Markdown blog services won't recognize image tag which has not any image extention on it. This option covers those situations.

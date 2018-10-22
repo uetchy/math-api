@@ -59,7 +59,7 @@ app.get('/', function(req, res, next) {
 
 // welcome page
 app.get('/', function(req, res) {
-  res.render('index')
+  res.render('index', { title: 'Math API' })
 })
 
 app.listen(app.get('port'), () => {

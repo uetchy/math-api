@@ -1,19 +1,59 @@
 html
   head
     title= title
+    style
+      | body {
+      |   display: flex;
+      |   justify-content: center;
+      | }
+      | .main {
+      |   padding: 15px;
+      |   margin-bottom: 80px;
+      | }
+      | .notation {
+      |   font-weight: bold;
+      |   color: rgb(239, 83, 81);
+      | }
+      | .equation {
+      |   font-weight: bold;
+      |   color: rgb(94, 5, 255);
+      | }
+      | h1, h2 {
+      |   margin-top: 80px;
+      | }
+      | h3 {
+      |   margin-top: 30px;
+      | }
   body(style="font-family: monospace")
-    h1 math API
-    h2 Usage
-    pre
-      code="curl https://math.now.sh?from=\sum^{N}_{i}x_i"
-    h3 HTML
-    pre
-      code="<img src=\"https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i\" />"
-    <img src="https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i" />
-    pre
-      code="<img src=\"//math.now.sh?inline=\log \prod^N_i x_i = \sum^N_i \log x_i\" />"
-    <img src="https://math.now.sh?inline=\log \prod^N_i x_i = \sum^N_i \log x_i" />
-    
-    h3 Markdown
-    pre
-      | ![](https://math.now.sh?from=LaTeX equation)
+    div.main
+      h1 Math API
+      p Place LaTeX Math equation on anywhere as <code>&lt;img&gt;</code> tag.
+      h2 Usage
+      p(style="font-size: 20px") https://math.now.sh?from=<span class="equation">LaTeX Math Equation</span>
+      h3 Block notation
+      p https://math.now.sh?<span class="notation">from</span>=<span class="equation">\sum^{N}_{i}x_i</span>
+      img(src="https://math.now.sh?from=\\sum^{N}_{i}x_i")
+      h3 Inline notation
+      p https://math.now.sh?<span class="notation">inline</span>=<span class="equation">\sum^{N}_{i}x_i</span>
+      img(src="https://math.now.sh?inline=\\sum^{N}_{i}x_i")
+
+      h2 HTML Example
+      p
+        = "<img src=\"https://math.now.sh?"
+        <span class="notation">from</span>=
+        | <span class="equation">\log \prod^N_i x_i = \sum^N_i \log x_i</span>
+        = "\"/>"
+      <img src="https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i" />
+      p
+        = "<img src=\"https://math.now.sh?"
+        <span class="notation">inline</span>=
+        | <span class="equation">\log \prod^N_i x_i = \sum^N_i \log x_i</span>
+        = "\"/>"
+      <img src="https://math.now.sh?inline=\log \prod^N_i x_i = \sum^N_i \log x_i" />
+      
+      h2 Markdown Example
+      pre
+        | ![Equation 1](https://math.now.sh?from=\log \prod^N_i x_i = \sum^N_i \log x_i)
+      
+      h2 Contribution
+      a(href="https://github.com/uetchy/math-api") Source Code (GitHub)
