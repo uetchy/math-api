@@ -1,0 +1,27 @@
+{
+  "name": "math",
+  "private": true,
+  "version": "1.0.0",
+  "description": "LaTeX Math-to-Image API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "now",
+    "rollout": "now alias && now rm math --safe"
+  },
+  "keywords": [
+    "latex",
+    "math",
+    "api"
+  ],
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "corser": "^2.0.1",
+    "express": "^4.16.4",
+    "mathjax-node": "^2.1.1",
+    "memory-cache": "^0.2.0",
+    "pug": "^2.0.3"
+  }
+}
