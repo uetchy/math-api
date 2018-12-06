@@ -1,11 +1,11 @@
 {
-  "name": "math",
+  "name": "math-api",
   "private": true,
   "version": "1.0.0",
   "description": "LaTeX Math-to-Image API",
-  "main": "index.js",
+  "main": "www",
   "scripts": {
-    "start": "node index.js",
+    "start": "node .",
     "deploy": "now",
     "rollout": "now alias && now rm math --safe"
   },
@@ -23,5 +23,6 @@
     "mathjax-node": "^2.1.1",
     "memory-cache": "^0.2.0",
     "pug": "^2.0.3"
-  }
+  },
+  "devDependencies": {}
 }

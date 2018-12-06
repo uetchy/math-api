@@ -4,7 +4,6 @@ const memCache = require('memory-cache')
 
 const app = express()
 
-app.set('port', process.env.PORT || 3000)
 app.set('view engine', 'pug')
 
 mathJax.config({
@@ -62,6 +61,4 @@ app.get('/', function(req, res) {
   res.render('index', { title: 'Math API' })
 })
 
-app.listen(app.get('port'), () => {
-  console.log(`listening on ${app.get('port')} ...`)
-})
+module.exports = app
