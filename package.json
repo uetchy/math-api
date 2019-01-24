@@ -1,21 +1,14 @@
 {
   "name": "math-api",
-  "private": true,
-  "version": "1.0.0",
   "description": "LaTeX Math-to-Image API",
+  "version": "1.0.0",
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "main": "www",
   "scripts": {
-    "start": "node .",
     "deploy": "now",
-    "rollout": "now alias && now rm math --safe"
+    "rollout": "now alias && now rm math --safe",
+    "start": "node ."
   },
-  "keywords": [
-    "latex",
-    "math",
-    "api"
-  ],
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
     "corser": "^2.0.1",
@@ -24,5 +17,12 @@
     "memory-cache": "^0.2.0",
     "pug": "^2.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "keywords": [
+    "api",
+    "latex",
+    "math"
+  ],
+  "license": "MIT",
+  "private": true
 }
