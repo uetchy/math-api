@@ -18,11 +18,19 @@
     "pug": "^2.0.3"
   },
   "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/uetchy/math-api/issues"
+  },
+  "homepage": "https://github.com/uetchy/math-api",
   "keywords": [
     "api",
     "latex",
     "math"
   ],
   "license": "MIT",
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uetchy/math-api.git"
+  }
 }
