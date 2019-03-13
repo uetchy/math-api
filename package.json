@@ -3,11 +3,10 @@
   "description": "LaTeX Math-to-Image API",
   "version": "1.0.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
-  "main": "www",
   "scripts": {
     "deploy": "now",
     "rollout": "now alias && now rm math --safe",
-    "start": "node ."
+    "start": "node www"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -15,7 +14,7 @@
     "express": "^4.16.4",
     "mathjax-node": "^2.1.1",
     "memory-cache": "^0.2.0",
-    "pug": "^2.0.3"
+    "svg2img": "^0.6.0"
   },
   "devDependencies": {},
   "bugs": {

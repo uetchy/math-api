@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <title>Math API</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      body {
+        padding: 15px;
+      }
+      .main {
+        max-width: 800px;
+        margin: 0 auto 80px auto;
+      }
+      .notation {
+        font-weight: bold;
+        color: rgb(239, 83, 81);
+      }
+      .equation {
+        font-weight: bold;
+        color: rgb(94, 5, 255);
+      }
+      h1,
+      h2 {
+        margin-top: 80px;
+      }
+      h3 {
+        margin-top: 30px;
+      }
+      #request {
+        width: 100%;
+        height: 120px;
+        padding: 16px;
+        font-size: 15px;
+      }
+      .responseField {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        font-size: 14px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body style="font-family: monospace">
+    <div class="main">
+      <h1>Math API</h1>
+      <p>
+        Place LaTeX Math equation on anywhere as <code>&lt;img&gt;</code> tag.
+      </p>
+      <h2>Usage</h2>
+      <p style="font-size: 20px">
+        https://math.now.sh?from=<span class="equation"
+          >[LaTeX Math Equation]</span
+        >
+      </p>
+      <h3>Block notation</h3>
+      <p>
+        https://math.now.sh?<span class="notation">from</span>=<span
+          class="equation"
+          >\sum^{N}_{i}x_i</span
+        >
+      </p>
+      <img src="https://math.now.sh?from=\sum^{N}_{i}x_i" />
+
+      <h3>Inline notation</h3>
+      <p>
+        https://math.now.sh?<span class="notation">inline</span>=<span
+          class="equation"
+          >\sum^{N}_{i}x_i</span
+        >
+      </p>
+      <img src="https://math.now.sh?inline=\sum^{N}_{i}x_i" />
+
+      <h3>PNG support</h3>
+      <p>
+        https://math.now.sh?from=<span class="equation">\sum^{N}_{i}x_i</span
+        ><span class="notation">.png</span>
+      </p>
+      <img src="https://math.now.sh?inline=\sum^{N}_{i}x_i.png" />
+
+      <h2>HTML Example</h2>
+      <a href="https://codesandbox.io/s/2w223oq5lr">
+        <img
+          alt="Edit 2w223oq5lr"
+          src="https://codesandbox.io/static/img/play-codesandbox.svg"
+        />
+      </a>
+      <p>
+        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span
+        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        >&quot; /&gt;
+      </p>
+      <img
+        src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}"
+      />
+      <p>
+        &lt;img src=&quot;https://math.now.sh?<span class="notation"
+          >inline</span
+        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        >&quot; /&gt;
+      </p>
+      <img
+        src="https://math.now.sh?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}"
+      />
+      <h2>Markdown Example</h2>
+      <p>
+        ![Equation 1](https://math.now.sh?<span class="notation">from</span
+        >=<span class="equation">\LaTeX</span>)
+      </p>
+      <img src="https://math.now.sh?from=\LaTeX" />
+      <h2>Online Editor</h2>
+      <textarea id="request" onKeyup="onTextChanged(this)">\LaTeX</textarea>
+      <div>
+        <h3>Preview</h3>
+        <img id="responseImage" src="https://math.now.sh?from=\LaTeX" />
+        <h3>HTML</h3>
+        <input
+          id="responseHTML"
+          class="responseField"
+          readonly="true"
+          onClick="this.select();"
+          value='&lt;img src="https://math.now.sh?from=%5CLaTeX" /&gt;'
+        />
+        <h3>Markdown</h3>
+        <input
+          id="responseMarkdown"
+          class="responseField"
+          readonly="true"
+          onClick="this.select();"
+          value="![](https://math.now.sh?from=%5CLaTeX)"
+        />
+        <h3>URL</h3>
+        <input
+          id="responseURL"
+          class="responseField"
+          readonly="true"
+          onClick="this.select();"
+          value="https://math.now.sh?from=%5CLaTeX"
+        />
+      </div>
+      <script>
+        function onTextChanged(e) {
+          const value = e.value
+          const responseHTML = document.querySelector('#responseHTML')
+          const responseMarkdown = document.querySelector('#responseMarkdown')
+          const responseImage = document.querySelector('#responseImage')
+          const purifiedURL =
+            'https://math.now.sh?from=' + encodeURIComponent(value)
+          responseHTML.value = '<img src="' + purifiedURL + ' />'
+          responseMarkdown.value = '![](' + purifiedURL + ')'
+          responseURL.value = purifiedURL
+          responseImage.src = purifiedURL
+        }
+      </script>
+      <h2>Resources</h2>
+      <a href="https://dev.to/uetchy/math-api-latex-math-as-svg-image-m4p"
+        >Math API: LaTeX Math as SVG image - DEV Community 👩‍💻👨‍💻</a
+      ><br /><br />
+      <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a
+      ><br />
+      <a href="https://twitter.com/uetschy">Author (Twitter)</a>
+    </div>
+  </body>
+</html>
