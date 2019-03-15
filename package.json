@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "now",
     "rollout": "now alias && now rm math --safe",
-    "start": "node www"
+    "dev": "nodemon scripts/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

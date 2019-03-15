@@ -1,15 +1,10 @@
 const express = require('express')
-const mathJax = require('mathjax-node')
+const mathJax = require('mathjax-node/lib/main.js')
 const memCache = require('memory-cache')
 const svg2img = require('svg2img')
 const path = require('path')
 
 const app = express()
-
-mathJax.config({
-  MathJax: {},
-})
-mathJax.start()
 
 function typeset(math, format) {
   return new Promise((resolve, reject) => {
@@ -81,7 +76,7 @@ app.get('/', async function(req, res, next) {
 
 // welcome page
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'views/index.html'))
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 module.exports = app

@@ -1,5 +1,24 @@
 {
+  "version": 2,
+  "public": true,
   "name": "math",
   "alias": "math",
-  "public": true
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@now/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "index.html",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "index.js" }],
+  "github": {
+    "enabled": false,
+    "autoAlias": false
+  }
 }
