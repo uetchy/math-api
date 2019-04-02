@@ -1,10 +1,12 @@
 const express = require('express')
-const mathJax = require('mathjax-node/lib/main.js')
 const memCache = require('memory-cache')
 const svg2img = require('svg2img')
 const path = require('path')
+const mathJax = require('mathjax-node')
 
 const app = express()
+
+mathJax.start()
 
 function typeset(math, format) {
   return new Promise((resolve, reject) => {
@@ -79,4 +81,4 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-module.exports = app
+app.listen()
