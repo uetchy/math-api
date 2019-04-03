@@ -12,14 +12,14 @@
       }
     },
     {
-      "src": "thirdparty/MathJax/unpacked/**",
+      "src": "third_party/MathJax/unpacked/**",
       "use": "@now/static"
     }
   ],
   "routes": [
     {
       "src": "/mathjax/(.*)",
-      "dest": "/thirdparty/MathJax/unpacked/$1",
+      "dest": "/third_party/MathJax/unpacked/$1",
       "headers": { "Content-Type": "text/plain" }
     },
     { "src": "/(.*)", "dest": "index.js" }

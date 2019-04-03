@@ -5,8 +5,8 @@
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "deploy": "now",
-    "rollout": "now alias && now rm math --safe",
-    "dev": "nodemon scripts/server.js"
+    "rollout": "now --target production && now rm math --safe",
+    "dev": "now dev"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -14,7 +14,7 @@
     "corser": "^2.0.1",
     "express": "^4.16.4",
     "mathjax": "^2.7.5",
-    "mathjax-node": "./thirdparty/MathJax-node",
+    "mathjax-node": "./third_party/MathJax-node",
     "memory-cache": "^0.2.0",
     "svg2img": "^0.6.0",
     "utf-8-validate": "^5.0.2"
