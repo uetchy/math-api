@@ -25,7 +25,7 @@
     { "src": "/(.*)", "dest": "index.js" }
   ],
   "github": {
-    "enabled": false,
+    "enabled": true,
     "autoAlias": false
   }
 }
