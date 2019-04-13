@@ -6,3 +6,10 @@
 README.md
 scripts
 node_modules
+third_party/MathJax/config
+third_party/MathJax/docs
+third_party/MathJax/extensions
+third_party/MathJax/fonts
+third_party/MathJax/jax
+third_party/MathJax/localization
+third_party/MathJax/test
