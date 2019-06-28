@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "public": false,
   "name": "math",
   "alias": "math.now.sh",
   "builds": [
@@ -10,19 +9,14 @@
       "config": {
         "maxLambdaSize": "50mb"
       }
-    },
-    {
-      "src": "third_party/MathJax/unpacked/**",
-      "use": "@now/static"
     }
   ],
   "routes": [
     {
-      "src": "/mathjax/(.*)",
-      "dest": "/third_party/MathJax/unpacked/$1",
-      "headers": { "Content-Type": "text/plain" }
-    },
-    { "src": "/(.*)", "dest": "index.js" }
+      "src": "/(.*)",
+      "dest": "index.js",
+      "headers": { "cache-control": "s-maxage=3600" }
+    }
   ],
   "github": {
     "enabled": true,
