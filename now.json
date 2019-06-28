@@ -20,6 +20,6 @@
   ],
   "github": {
     "enabled": true,
-    "autoAlias": false
+    "autoAlias": true
   }
 }
