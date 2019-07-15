@@ -1253,10 +1253,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-svg2img@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/svg2img/-/svg2img-0.6.0.tgz#0c11b3dcb99ce5f9d59e0393856634ff7da63909"
-  integrity sha512-n7ivmTvYxwpmqaGWEFSJPCNcgxx4g3XNJG7nZLJWr16ghl7Ln0HaO3bBRr48oahUsuT7zCm/iKQt5RmZHH+CyA==
+svg2img@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/svg2img/-/svg2img-0.6.1.tgz#b5fc953587a4eba4fdf679e08e8494994ce26dc9"
+  integrity sha512-rjrh0fX5/BjNyoZ7RARFTvXSFz49ak2sRTq7GWmEF5JnnisyRfA0275UmJRQWJrFWFv2mxhaN1gfV1oZAXGkCw==
   dependencies:
     atob "^2.0.0"
     btoa "^1.1.2"
