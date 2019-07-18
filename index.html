@@ -44,14 +44,18 @@
     <div class="main">
       <h1>Math API</h1>
       <p>
-        Place LaTeX Math equation on anywhere as <code>&lt;img&gt;</code> tag.
+        <img
+          src="https://math.now.sh?from=%5Ctext%7BPlace%20%7D%20%5CLaTeX%20%5Ctext%7B%20Math%20equation%20on%20anywhere%20as%20%7D%20%5Ctexttt%7B%3Cimg%3E%7D%20%5Ctext%7B%20tag.%7D"
+        />
       </p>
+
       <h2>Usage</h2>
       <p style="font-size: 20px">
         https://math.now.sh?from=<span class="equation"
           >[LaTeX Math Equation]</span
         >
       </p>
+
       <h3>Block notation</h3>
       <p>
         https://math.now.sh?<span class="notation">from</span>=<span
@@ -103,6 +107,7 @@
         >=<span class="equation">\LaTeX</span>)
       </p>
       <img src="/?from=\LaTeX" />
+
       <h2>Online Editor</h2>
       <textarea id="request" onKeyup="onTextChanged(this)">\LaTeX</textarea>
       <div>
@@ -133,6 +138,7 @@
           value="https://math.now.sh?from=%5CLaTeX"
         />
       </div>
+
       <script>
         function onTextChanged(e) {
           const value = e.value
@@ -141,19 +147,19 @@
           const responseImage = document.querySelector('#responseImage')
           const purifiedURL =
             'https://math.now.sh?from=' + encodeURIComponent(value)
-          responseHTML.value = '<img src="' + purifiedURL + ' />'
-          responseMarkdown.value = '![](' + purifiedURL + ')'
+          responseHTML.value = '<img src="' + purifiedURL + '" />'
+          responseMarkdown.value = '![Equation](' + purifiedURL + ')'
           responseURL.value = purifiedURL
           responseImage.src = purifiedURL
         }
       </script>
       <h2>Resources</h2>
-      <a href="https://dev.to/uetchy/math-api-latex-math-as-svg-image-m4p"
-        >Math API: LaTeX Math as SVG image - DEV Community 👩‍💻👨‍💻</a
-      ><br /><br />
       <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a
       ><br />
-      <a href="https://twitter.com/uetschy">Author (Twitter)</a>
+      <a href="https://twitter.com/uetschy">Author (Twitter)</a><br />
+      <a href="https://dev.to/uetchy/math-api-latex-math-as-svg-image-m4p"
+        >Math API: LaTeX Math as SVG image - DEV Community 👩‍💻👨‍💻</a
+      ><br />
     </div>
   </body>
 </html>
