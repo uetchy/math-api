@@ -9,6 +9,10 @@
       "config": {
         "maxLambdaSize": "50mb"
       }
+    },
+    {
+      "src": "index.html",
+      "use": "@now/static"
     }
   ],
   "routes": [
