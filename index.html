@@ -162,16 +162,16 @@
 
       <script>
         function onTextChanged(e) {
-          const value = e.value
-          const responseHTML = document.querySelector('#responseHTML')
-          const responseMarkdown = document.querySelector('#responseMarkdown')
-          const responseImage = document.querySelector('#responseImage')
+          const value = e.value;
+          const responseHTML = document.querySelector('#responseHTML');
+          const responseMarkdown = document.querySelector('#responseMarkdown');
+          const responseImage = document.querySelector('#responseImage');
           const purifiedURL =
-            'https://math.now.sh?from=' + encodeURIComponent(value)
-          responseHTML.value = '<img src="' + purifiedURL + '" />'
-          responseMarkdown.value = '![Equation](' + purifiedURL + ')'
-          responseURL.value = purifiedURL
-          responseImage.src = purifiedURL
+            'https://math.now.sh?from=' + encodeURIComponent(value);
+          responseHTML.value = '<img src="' + purifiedURL + '" />';
+          responseMarkdown.value = '![Equation](' + purifiedURL + ')';
+          responseURL.value = purifiedURL;
+          responseImage.src = purifiedURL;
         }
       </script>
       <h2>Resources</h2>
