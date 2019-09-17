@@ -5,18 +5,17 @@
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "deploy": "now",
-    "rollout": "now --target production && now rm math --safe",
-    "dev": "now dev"
+    "dev": "now dev",
+    "rollout": "now --target production && now rm math --safe"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "bufferutil": "^4.0.1",
     "corser": "^2.0.1",
     "express": "^4.17.1",
+    "helmet": "^3.21.0",
     "mathjax3": "^3.0.0-beta.4",
     "memory-cache": "^0.2.0",
-    "svg2img": "^0.6.1",
-    "utf-8-validate": "^5.0.2"
+    "svg2img": "^0.6.1"
   },
   "devDependencies": {},
   "bugs": {

@@ -5,21 +5,16 @@
   "builds": [
     {
       "src": "index.js",
-      "use": "@now/node-server",
+      "use": "@now/node",
       "config": {
         "maxLambdaSize": "50mb"
       }
-    },
-    {
-      "src": "index.html",
-      "use": "@now/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "index.js",
-      "headers": { "cache-control": "s-maxage=3600" }
+      "dest": "index.js"
     }
   ],
   "github": {
