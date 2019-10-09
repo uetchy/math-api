@@ -36,6 +36,6 @@ curl https://math.now.sh?from=\sum^{N}_{i}x_i
 
 ### **.svg** extension
 
-Params with **.svg** extension will be treated as normal math formula.
+URL ends with **.svg** extension will be treated as a normal math formula.
 
-Some Markdown blog services won't recognize image tag which has not any image extention on it. This option covers those situations.
+Some Markdown blog services won't treat image tags correctly whose URL has no any image extension in it. This option may give fixes to these situations.
