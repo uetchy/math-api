@@ -12,7 +12,7 @@
     "body-parser": "^1.19.0",
     "corser": "^2.0.1",
     "express": "^4.17.1",
-    "helmet": "^3.21.1",
+    "helmet": "^3.21.2",
     "mathjax3": "^3.0.0-beta.4",
     "memory-cache": "^0.2.0",
     "svg2img": "^0.6.1"
