@@ -27,8 +27,10 @@ const html = MathJax.document('', {
   OutputJax: new SVG({fontCache: 'none'}),
 });
 
-function tex2svg(equation, isInline = false) {
-  return adaptor.innerHTML(html.convert(equation, {display: !isInline}));
+function tex2svg(equation, isInline, color) {
+  return adaptor
+    .innerHTML(html.convert(equation, {display: !isInline}))
+    .replace(/fill="currentColor"/, `fill="${color}"`);
 }
 
 function svg2png(svgString, args = {}) {
@@ -44,7 +46,6 @@ function svg2png(svgString, args = {}) {
 
 // math parser
 app.get('/', async function(req, res, next) {
-  console.log(req.query);
   const mode = Object.keys(req.query).includes('from')
     ? 'block'
     : Object.keys(req.query).includes('inline')
@@ -63,11 +64,11 @@ app.get('/', async function(req, res, next) {
 
   const isPNG = /\.png$/.test(equation);
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
-  const cacheKey = isInline ? 'inline' : 'block' + '.' + normalizedEquation;
+  const cacheKey = `${isInline ? 'inline' : 'block'}-${color}-${normalizedEquation}`;
   const cachedData = memCache.get(cacheKey);
 
   try {
-    let image = cachedData || tex2svg(normalizedEquation, isInline);
+    let image = cachedData || tex2svg(normalizedEquation, isInline, color);
     if (!cachedData) memCache.put(cacheKey, image, 60 * 1000);
     if (isPNG) {
       image = Buffer.from(await svg2png(image), 'base64');
@@ -83,7 +84,6 @@ app.get('/', async function(req, res, next) {
       res.write(`<?xml version="1.0" standalone="no" ?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
   `);
-      image = image.replace(/fill="currentColor"/, `fill="${color}"`);
     }
 
     res.end(image);
