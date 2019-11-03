@@ -1,8 +1,11 @@
-const express = require('express');
-const helmet = require('helmet');
-const memCache = require('memory-cache');
 const path = require('path');
+const helmet = require('helmet');
+const express = require('express');
 const svg2img = require('svg2img');
+const bodyParser = require('body-parser');
+
+const memCache = require('memory-cache');
+
 const {MathJax} = require('mathjax3');
 const {TeX} = require('mathjax3/mathjax3/input/tex');
 const {SVG} = require('mathjax3/mathjax3/output/svg');
@@ -13,6 +16,7 @@ const app = express();
 
 // Helmet
 app.use(helmet());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // MathJax bootstrap
 const adaptor = chooseAdaptor();
@@ -40,11 +44,22 @@ function svg2png(svgString, args = {}) {
 
 // math parser
 app.get('/', async function(req, res, next) {
-  const isInline = Object.keys(req.query)[0] === 'inline';
+  console.log(req.query);
+  const mode = Object.keys(req.query).includes('from')
+    ? 'block'
+    : Object.keys(req.query).includes('inline')
+    ? 'inline'
+    : null;
+  if (!mode) {
+    return next();
+  }
+  const isInline = mode === 'inline';
   const equation = isInline ? req.query.inline : req.query.from;
   if (!equation || equation.match(/\.ico$/)) {
     return next();
   }
+
+  const color = req.query.color || 'black';
 
   const isPNG = /\.png$/.test(equation);
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
@@ -68,13 +83,12 @@ app.get('/', async function(req, res, next) {
       res.write(`<?xml version="1.0" standalone="no" ?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
   `);
+      image = image.replace(/fill="currentColor"/, `fill="${color}"`);
     }
 
     res.end(image);
   } catch (err) {
-    res.write(
-      '<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">',
-    );
+    res.write('<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">');
     res.write(err);
     res.end('</text></svg>');
   }

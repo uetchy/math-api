@@ -65,15 +65,12 @@
 
       <h2>Usage</h2>
       <p style="font-size: 20px">
-        https://math.now.sh?from=<span class="equation"
-          >[LaTeX Math Equation]</span
-        >
+        https://math.now.sh?from=<span class="equation">[LaTeX Math Equation]</span>
       </p>
 
       <h3>Block notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">from</span>=<span
-          class="equation"
+        https://math.now.sh?<span class="notation">from</span>=<span class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
       </p>
@@ -83,8 +80,7 @@
 
       <h3>Inline notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">inline</span>=<span
-          class="equation"
+        https://math.now.sh?<span class="notation">inline</span>=<span class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
       </p>
@@ -102,30 +98,37 @@
         src="/?from=%5Cfrac%7B1%7D%7B%5CGamma(s)%7D%5Cint_%7B0%7D%5E%7B%5Cinfty%7D%5Cfrac%7Bu%5E%7Bs-1%7D%7D%7Be%5E%7Bu%7D-1%7D%5Cmathrm%7Bd%7Du.png"
       />
 
+      <h3>Color</h3>
+      <p>
+        https://math.now.sh?from=<span class="equation">\sum</span>&<span class="notation"
+          >color=red</span
+        >
+      </p>
+      <img src="/?from=\sum&color=red" />
+
       <h2>HTML Example</h2>
       <a href="https://codesandbox.io/s/2w223oq5lr">
-        <img
-          alt="Edit 2w223oq5lr"
-          src="https://codesandbox.io/static/img/play-codesandbox.svg"
-        />
+        <img alt="Edit 2w223oq5lr" src="https://codesandbox.io/static/img/play-codesandbox.svg" />
       </a>
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span
-        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span>=<span
+          class="equation"
+          >\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
       </p>
       <img src="/?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation"
-          >inline</span
-        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        &lt;img src=&quot;https://math.now.sh?<span class="notation">inline</span>=<span
+          class="equation"
+          >\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
       </p>
       <img src="/?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <h2>Markdown Example</h2>
       <p>
-        ![Equation 1](https://math.now.sh?<span class="notation">from</span
-        >=<span class="equation">\text{softplus}(x)=\log(1+e^x)</span>)
+        ![Equation 1](https://math.now.sh?<span class="notation">from</span>=<span class="equation"
+          >\text{softplus}(x)=\log(1+e^x)</span
+        >)
       </p>
       <img src="/?from=%5Ctext%7Bsoftplus%7D(x)%3D%5Clog(1%2Be%5Ex)" />
 
@@ -166,8 +169,7 @@
           const responseHTML = document.querySelector('#responseHTML');
           const responseMarkdown = document.querySelector('#responseMarkdown');
           const responseImage = document.querySelector('#responseImage');
-          const purifiedURL =
-            'https://math.now.sh?from=' + encodeURIComponent(value);
+          const purifiedURL = 'https://math.now.sh?from=' + encodeURIComponent(value);
           responseHTML.value = '<img src="' + purifiedURL + '" />';
           responseMarkdown.value = '![Equation](' + purifiedURL + ')';
           responseURL.value = purifiedURL;
@@ -175,8 +177,7 @@
         }
       </script>
       <h2>Resources</h2>
-      <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a
-      ><br />
+      <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a><br />
       <a href="https://twitter.com/uetschy">Author (Twitter)</a><br />
       <a href="https://dev.to/uetchy/math-api-latex-math-as-svg-image-m4p"
         >Math API: LaTeX Math as SVG image - DEV Community 👩‍💻👨‍💻</a
