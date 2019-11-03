@@ -61,6 +61,9 @@ app.get('/', async function(req, res, next) {
   }
 
   const color = req.query.color || 'black';
+  if (/[^a-zA-Z0-9#]/.test(color)) {
+    return next();
+  }
 
   const isPNG = /\.png$/.test(equation);
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
