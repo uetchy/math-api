@@ -2,11 +2,11 @@
   "name": "math-api",
   "description": "LaTeX Math-to-Image API",
   "version": "1.0.0",
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "deploy": "now",
     "dev": "now dev",
-    "rollout": "now --target production && now rm math --safe"
+    "rollout": "now --target production && now rm math --safe",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -33,6 +33,8 @@
     "typescript": "^3.6.4",
     "wait-on": "^3.3.0"
   },
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/uetchy/math-api/issues"
   },
@@ -42,7 +44,6 @@
     "latex",
     "math"
   ],
-  "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
