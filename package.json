@@ -27,6 +27,7 @@
     "@types/node": "^12.12.5",
     "@types/supertest": "^2.0.8",
     "@types/wait-on": "^3.2.0",
+    "get-port": "^5.0.0",
     "now": "^16.4.4",
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",

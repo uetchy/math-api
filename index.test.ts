@@ -1,19 +1,22 @@
 import waitOn from 'wait-on';
 import request from 'supertest';
+import getPort from 'get-port';
 import {spawn} from 'child_process';
 
-const BASE_URL = 'http://localhost:3000';
+let host: string;
 
-async function launchNow() {
-  const nowDev = spawn('now dev', {shell: true});
-  await waitOn({resources: [BASE_URL]});
+async function launchNow(host: string) {
+  const nowDev = spawn('now', ['dev', '--listen', host], {shell: true});
+  await waitOn({resources: [`http://${host}`]});
   return () => nowDev.kill('SIGINT');
 }
 
 let quitNow: () => void;
 
 beforeAll(async () => {
-  quitNow = await launchNow();
+  host = `127.0.0.1:${await getPort()}`;
+  console.log(host);
+  quitNow = await launchNow(host);
 }, 20000);
 
 afterAll(async () => {
@@ -21,7 +24,7 @@ afterAll(async () => {
 });
 
 it('renders home', async () => {
-  const response = await request(BASE_URL)
+  const response = await request(`http://${host}`)
     .get('/')
     .redirects(1);
 
