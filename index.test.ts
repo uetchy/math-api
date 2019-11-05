@@ -1,37 +1,12 @@
-import waitOn from 'wait-on';
-import getPort from 'get-port';
-import spawn from 'cross-spawn';
 import request from 'supertest';
+import {launchNow} from './util/now';
 
-let host: string;
+let app: request.SuperTest<request.Test>;
 let quitNow: () => void;
 
-async function launchNow(host: string) {
-  const nowDev = spawn('now', ['dev', '--listen', host], {
-    shell: true,
-    // detached: true,
-    stdio: 'ignore',
-  });
-  nowDev.unref();
-  // console.log(nowDev.pid);
-  try {
-    await waitOn({resources: [`http://${host}`]});
-  } catch (err) {
-    console.error('failed to wait');
-    console.error(err);
-  }
-  return () => {
-    nowDev.kill('SIGINT');
-  };
-}
-
-function app() {
-  return request(`http://${host}`);
-}
-
+jest.retryTimes(3);
 beforeAll(async () => {
-  host = `127.0.0.1:${await getPort()}`;
-  quitNow = await launchNow(host);
+  [app, quitNow] = await launchNow();
 }, 40000);
 
 afterAll(async () => {
@@ -39,9 +14,7 @@ afterAll(async () => {
 });
 
 it('renders home', async () => {
-  const response = await app()
-    .get('/')
-    .redirects(1);
+  const response = await app.get('/').redirects(1);
 
   expect(response.text).toContain('Math API');
   expect(response.text).toContain(
