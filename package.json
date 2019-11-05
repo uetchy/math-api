@@ -30,6 +30,7 @@
     "cross-spawn": "^7.0.1",
     "get-port": "^5.0.0",
     "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
     "now": "^16.4.4",
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
