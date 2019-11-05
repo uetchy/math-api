@@ -1,24 +1,35 @@
 {
-  "version": 2,
   "name": "math",
   "alias": "math.now.sh",
   "builds": [
     {
-      "src": "index.js",
+      "src": "index.ts",
       "use": "@now/node",
       "config": {
         "maxLambdaSize": "50mb"
       }
+    },
+    {
+      "src": "index.html",
+      "use": "@now/static"
     }
   ],
   "routes": [
     {
+      "src": "/home",
+      "dest": "index.html",
+      "headers": {
+        "cache-control": "s-maxage=86400, maxage=86400"
+      }
+    },
+    {
       "src": "/(.*)",
-      "dest": "index.js"
+      "dest": "index.ts"
     }
   ],
   "github": {
     "enabled": true,
-    "autoAlias": true
+    "autoAlias": true,
+    "silent": true
   }
 }
