@@ -1,5 +1,10 @@
 # Math API
 
+[![workflow-badge]][workflow-url]
+
+[workflow-badge]: https://github.com/uetchy/math-api/workflows/Math%20API/badge.svg
+[workflow-url]: https://github.com/uetchy/math-api/actions?workflow=Math%20API
+
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
 https://math.now.sh
