@@ -24,19 +24,26 @@ const html = MathJax.document('', {
 });
 
 function tex2svg(equation: string, isInline: boolean, color: string): string {
-  return adaptor
+  const svg = adaptor
     .innerHTML(html.convert(equation, {display: !isInline}))
     .replace(/fill="currentColor"/, `fill="${color}"`);
+  if (svg.includes('merror')) {
+    return svg.replace(/<rect.+?><\/rect>/, '');
+  }
+  return svg;
 }
 
 function svg2png(svgString: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const [width, height] = svgString.match(/width="([\d.]+)ex" height="([\d.]+)ex"/)!.slice(1).map(s => parseFloat(s))
-    console.log(width, height)
+    const [width, height] = svgString
+      .match(/width="([\d.]+)ex" height="([\d.]+)ex"/)!
+      .slice(1)
+      .map((s) => parseFloat(s));
+    console.log(width, height);
     const args = {
-      width: `${width*3}ex`,
-      height: `${height*3}ex`
-    }
+      width: `${width * 3}ex`,
+      height: `${height * 3}ex`,
+    };
     svg2img(svgString, args, function(error: Error, buffer: Buffer) {
       if (error) {
         return reject(error);
@@ -71,8 +78,8 @@ app.get('/', async function(req, res, next) {
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
 
   try {
-    const svgString = tex2svg(normalizedEquation, isInline, color)
-    const imageData = isPNG ? (await svg2png(svgString)) : svgString;
+    const svgString = tex2svg(normalizedEquation, isInline, color);
+    const imageData = isPNG ? await svg2png(svgString) : svgString;
 
     res.setHeader('cache-control', 's-maxage=604800, maxage=604800');
 
@@ -96,7 +103,7 @@ app.get('/', async function(req, res, next) {
 
 // welcome page
 app.get('/', function(req, res) {
-  res.redirect('/home', 301)
+  res.redirect('/home', 301);
 });
 
 // app.listen();
