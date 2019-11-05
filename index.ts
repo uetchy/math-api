@@ -1,16 +1,12 @@
-const path = require('path');
-const helmet = require('helmet');
-const express = require('express');
-const svg2img = require('svg2img');
-const bodyParser = require('body-parser');
-
-const memCache = require('memory-cache');
-
-const {MathJax} = require('mathjax3');
-const {TeX} = require('mathjax3/mathjax3/input/tex');
-const {SVG} = require('mathjax3/mathjax3/output/svg');
-const {RegisterHTMLHandler} = require('mathjax3/mathjax3/handlers/html');
-const {chooseAdaptor} = require('mathjax3/mathjax3/adaptors/chooseAdaptor');
+import helmet from 'helmet';
+import express from 'express';
+import svg2img from 'svg2img';
+import bodyParser from 'body-parser';
+import {MathJax} from 'mathjax3';
+import {TeX} from 'mathjax3/mathjax3/input/tex';
+import {SVG} from 'mathjax3/mathjax3/output/svg';
+import {RegisterHTMLHandler} from 'mathjax3/mathjax3/handlers/html';
+import {LiteAdaptor} from 'mathjax3/mathjax3/adaptors/liteAdaptor';
 
 const app = express();
 
@@ -19,7 +15,7 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // MathJax bootstrap
-const adaptor = chooseAdaptor();
+const adaptor = new LiteAdaptor();
 RegisterHTMLHandler(adaptor);
 
 const html = MathJax.document('', {
@@ -27,15 +23,28 @@ const html = MathJax.document('', {
   OutputJax: new SVG({fontCache: 'none'}),
 });
 
-function tex2svg(equation, isInline, color) {
-  return adaptor
+function tex2svg(equation: string, isInline: boolean, color: string): string {
+  const svg = adaptor
     .innerHTML(html.convert(equation, {display: !isInline}))
     .replace(/fill="currentColor"/, `fill="${color}"`);
+  if (svg.includes('merror')) {
+    return svg.replace(/<rect.+?><\/rect>/, '');
+  }
+  return svg;
 }
 
-function svg2png(svgString, args = {}) {
+function svg2png(svgString: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    svg2img(svgString, args, function(error, buffer) {
+    const [width, height] = svgString
+      .match(/width="([\d.]+)ex" height="([\d.]+)ex"/)!
+      .slice(1)
+      .map((s) => parseFloat(s));
+    console.log(width, height);
+    const args = {
+      width: `${width * 3}ex`,
+      height: `${height * 3}ex`,
+    };
+    svg2img(svgString, args, function(error: Error, buffer: Buffer) {
       if (error) {
         return reject(error);
       }
@@ -67,17 +76,12 @@ app.get('/', async function(req, res, next) {
 
   const isPNG = /\.png$/.test(equation);
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
-  const cacheKey = `${isInline ? 'inline' : 'block'}-${color}-${normalizedEquation}`;
-  const cachedData = memCache.get(cacheKey);
 
   try {
-    let image = cachedData || tex2svg(normalizedEquation, isInline, color);
-    if (!cachedData) memCache.put(cacheKey, image, 60 * 1000);
-    if (isPNG) {
-      image = Buffer.from(await svg2png(image), 'base64');
-    }
+    const svgString = tex2svg(normalizedEquation, isInline, color);
+    const imageData = isPNG ? await svg2png(svgString) : svgString;
 
-    res.setHeader('cache-control', 's-maxage=604800, maxage=86400');
+    res.setHeader('cache-control', 's-maxage=604800, maxage=604800');
 
     // render equation
     if (isPNG) {
@@ -89,7 +93,7 @@ app.get('/', async function(req, res, next) {
   `);
     }
 
-    res.end(image);
+    res.end(imageData);
   } catch (err) {
     res.write('<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">');
     res.write(err);
@@ -99,9 +103,8 @@ app.get('/', async function(req, res, next) {
 
 // welcome page
 app.get('/', function(req, res) {
-  res.setHeader('cache-control', 's-maxage=86400, maxage=86400');
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.redirect('/home', 301);
 });
 
 // app.listen();
-module.exports = app;
+export default app;
