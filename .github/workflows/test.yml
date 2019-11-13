@@ -4,6 +4,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -16,5 +17,3 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn test
-        env:
-          CI: true
