@@ -1,1 +1,1 @@
-declare module 'svg2img';
+declare module "svg2img";
