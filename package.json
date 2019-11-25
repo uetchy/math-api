@@ -31,7 +31,7 @@
     "get-port": "^5.0.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
-    "now": "^16.5.2",
+    "now": "^16.6.0",
     "supertest": "^4.0.2",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
