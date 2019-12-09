@@ -34,7 +34,7 @@
     "now": "^16.6.0",
     "supertest": "^4.0.2",
     "ts-jest": "^24.2.0",
-    "typescript": "^3.7.2",
+    "typescript": "^3.7.3",
     "wait-on": "^3.3.0"
   },
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
