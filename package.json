@@ -38,7 +38,7 @@
     "wait-on": "^3.3.0"
   },
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/uetchy/math-api/issues"
   },
