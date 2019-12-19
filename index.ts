@@ -2,11 +2,12 @@ import helmet from "helmet";
 import express from "express";
 import svg2img from "svg2img";
 import bodyParser from "body-parser";
-import { MathJax } from "mathjax3";
-import { TeX } from "mathjax3/mathjax3/input/tex";
-import { SVG } from "mathjax3/mathjax3/output/svg";
-import { RegisterHTMLHandler } from "mathjax3/mathjax3/handlers/html";
-import { LiteAdaptor } from "mathjax3/mathjax3/adaptors/liteAdaptor";
+import { mathjax } from "mathjax-full/js/mathjax";
+import { TeX } from "mathjax-full/js/input/tex";
+import { SVG } from "mathjax-full/js/output/svg";
+import { LiteAdaptor } from "mathjax-full/js/adaptors/liteAdaptor";
+import { RegisterHTMLHandler } from "mathjax-full/js/handlers/html";
+import { AllPackages } from "mathjax-full/js/input/tex/AllPackages";
 
 const app = express();
 
@@ -17,9 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // MathJax bootstrap
 const adaptor = new LiteAdaptor();
 RegisterHTMLHandler(adaptor);
-
-const html = MathJax.document("", {
-  InputJax: new TeX(),
+const html = mathjax.document("", {
+  InputJax: new TeX({ packages: AllPackages }),
   OutputJax: new SVG({ fontCache: "none" })
 });
 
