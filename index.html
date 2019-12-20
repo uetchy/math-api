@@ -176,7 +176,10 @@
           const responseMarkdown = document.querySelector("#responseMarkdown");
           const responseImage = document.querySelector("#responseImage");
           const purifiedURL =
-            "https://math.now.sh?from=" + encodeURIComponent(value);
+            "https://math.now.sh?from=" +
+            encodeURIComponent(value)
+              .replace("(", "%28")
+              .replace(")", "%29");
           responseHTML.value = '<img src="' + purifiedURL + '" />';
           responseMarkdown.value = "![Equation](" + purifiedURL + ")";
           responseURL.value = purifiedURL;
