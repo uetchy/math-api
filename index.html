@@ -164,7 +164,7 @@
           id="responseURL"
           class="responseField"
           readonly="true"
-          onClick="this.select();"
+          onClick="setTimeout(function(){this.setSelectionRange(0, 9999)},1)"
           value="https://math.now.sh?from=%5CLaTeX"
         />
       </div>
