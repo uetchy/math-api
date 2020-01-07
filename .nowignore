@@ -1,7 +1,9 @@
-.envrc
+.dependabot
 .env
-.gitignore
+.envrc
 .git
+.github
+.gitignore
 .vscode
-README.md
 node_modules
+README.md

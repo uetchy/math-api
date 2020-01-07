@@ -29,7 +29,7 @@
   ],
   "github": {
     "enabled": true,
-    "autoAlias": true,
+    "autoAlias": false,
     "silent": true
   }
 }
