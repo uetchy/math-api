@@ -34,7 +34,7 @@
     "supertest": "^4.0.2",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.4",
-    "wait-on": "^3.3.0"
+    "wait-on": "^4.0.0"
   },
   "repository": {
     "type": "git",
