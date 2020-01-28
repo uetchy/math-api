@@ -29,10 +29,10 @@
     "@types/wait-on": "^3.2.0",
     "cross-spawn": "^7.0.1",
     "get-port": "^5.1.1",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-circus": "^25.1.0",
     "supertest": "^4.0.2",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.0.0",
     "typescript": "^3.7.5",
     "wait-on": "^4.0.0"
   },
