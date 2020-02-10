@@ -14,7 +14,7 @@
     "corser": "^2.0.1",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
-    "mathjax-full": "^3.0.0",
+    "mathjax-full": "^3.0.1",
     "svg2img": "^0.6.1"
   },
   "devDependencies": {
