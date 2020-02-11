@@ -446,10 +446,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@now/node@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@now/node/-/node-1.4.0.tgz#fc6c107754f22fd9ba0cc9f66c8474be1a6a9bce"
-  integrity sha512-JdHK16AL8D1EUcUV5f1xZ6RJT+iCnSq4P/gkc2QELmkx0PxSM4RtoAu4HFMxNv/qk72qArsrg+RRwjg55R04Zg==
+"@now/node@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@now/node/-/node-1.4.1.tgz#a07e22abb34d892e77fef1471f35518ddb39dbfc"
+  integrity sha512-EjP/pdBMKsEMCGQ1OLLmBGnjA3QZG1erYTrMqmDVqypeQsY1UUFTY4h1C4d6WNq33qk/nMxpcJzuAhxt+nLQyg==
   dependencies:
     "@types/node" "*"
 
