@@ -33,7 +33,7 @@
     "jest-circus": "^25.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "^25.2.0",
-    "typescript": "^3.7.5",
+    "typescript": "^3.8.2",
     "wait-on": "^4.0.0"
   },
   "repository": {
