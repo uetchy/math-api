@@ -577,10 +577,10 @@
     jest-diff "^25.1.0"
     pretty-format "^25.1.0"
 
-"@types/memory-cache@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@types/memory-cache/-/memory-cache-0.2.0.tgz#b654a7757b5ca49d1d499bc0e4ce52a4afea2d71"
-  integrity sha512-zDj+12RJaigGdbd00auPN2KXeQyPVv1ad+54Dcm+cVgiI7cWXher3s9fPZwHMLr1Ji2fcVhccmtDa2mIBlvnlQ==
+"@types/memory-cache@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@types/memory-cache/-/memory-cache-0.2.1.tgz#00caf5d737e4acc100f5b98152c635edabdb00d7"
+  integrity sha512-6rmz3bMqJNkj0HIN3AMhOfRN+JhnxxTULeBkwgilfnspjABtKG6ig8mbIzkOjtmiRw+WG1B56z+BO6htGz3IBw==
 
 "@types/mime@*":
   version "2.0.1"
