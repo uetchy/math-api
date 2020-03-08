@@ -7,7 +7,8 @@
 
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
-https://math.now.sh
+- https://math.now.sh
+- [Online Editor](https://math.now.sh/#online-editor)
 
 ## Usage
 

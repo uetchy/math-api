@@ -1,16 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
-import { tex2svg, svg2png } from './adaptor';
+import { tex2svg } from './adaptor';
 
 const app = express();
 
-// Helmet
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// math parser
-app.get('/', async function(req, res, next) {
+app.get('*', async function(req, res, next) {
   const mode = Object.keys(req.query).includes('from')
     ? 'block'
     : Object.keys(req.query).includes('inline')
@@ -30,34 +28,26 @@ app.get('/', async function(req, res, next) {
     return next();
   }
 
-  const isPNG = /\.png$/.test(equation);
   const normalizedEquation = equation.replace(/\.(svg|png)$/, '');
 
   try {
     const svgString = tex2svg(normalizedEquation, isInline, color);
-    const imageData = isPNG ? await svg2png(svgString) : svgString;
 
     res.setHeader('cache-control', 's-maxage=604800, maxage=604800');
+    res.contentType('image/svg+xml');
+    res.write(`<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+`);
 
-    // render equation
-    if (isPNG) {
-      res.contentType('image/png');
-    } else {
-      res.contentType('image/svg+xml');
-      res.write(`<?xml version="1.0" standalone="no" ?>
-  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-  `);
-    }
-
-    res.end(imageData);
+    res.end(svgString);
   } catch (err) {
+    res.status(500);
     res.write('<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">');
     res.write(err);
     res.end('</text></svg>');
   }
 });
 
-// welcome page
 app.get('/', function(req, res) {
   res.redirect(301, '/home');
 });

@@ -1,5 +1,4 @@
 {
-  "name": "math",
   "alias": "math.now.sh",
   "builds": [
     {
@@ -19,11 +18,11 @@
       "src": "/home",
       "dest": "index.html",
       "headers": {
-        "cache-control": "s-maxage=86400, maxage=86400"
+        "cache-control": "s-maxage=604800"
       }
     },
     {
-      "src": "/(.*)",
+      "src": "/*",
       "dest": "index.ts"
     }
   ],
