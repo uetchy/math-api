@@ -1,9 +1,6 @@
 .dependabot
 .env
 .envrc
-.git
 .github
-.gitignore
 .vscode
-node_modules
 README.md

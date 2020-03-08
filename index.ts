@@ -1,58 +1,13 @@
-import helmet from 'helmet';
 import express from 'express';
-import svg2img from 'svg2img';
 import bodyParser from 'body-parser';
-import { mathjax } from 'mathjax-full/js/mathjax';
-import { TeX } from 'mathjax-full/js/input/tex';
-import { SVG } from 'mathjax-full/js/output/svg';
-import { LiteAdaptor } from 'mathjax-full/js/adaptors/liteAdaptor';
-import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html';
-import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages';
+import helmet from 'helmet';
+import { tex2svg, svg2png } from './adaptor';
 
 const app = express();
 
 // Helmet
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// MathJax bootstrap
-const adaptor = new LiteAdaptor();
-RegisterHTMLHandler(adaptor);
-const html = mathjax.document('', {
-  InputJax: new TeX({ packages: AllPackages }),
-  OutputJax: new SVG({ fontCache: 'none' }),
-});
-
-function tex2svg(equation: string, isInline: boolean, color: string): string {
-  const svg = adaptor
-    .innerHTML(html.convert(equation, { display: !isInline }))
-    .replace(/fill="currentColor"/, `fill="${color}"`);
-  if (svg.includes('merror')) {
-    return svg.replace(/<rect.+?><\/rect>/, '');
-  }
-  return svg;
-}
-
-function svg2png(svgString: string): Promise<Buffer> {
-  return new Promise((resolve, reject) => {
-    const [width, height] = svgString
-      .match(/width="([\d.]+)ex" height="([\d.]+)ex"/)!
-      .slice(1)
-      .map(s => parseFloat(s));
-
-    const args = {
-      width: `${width * 3}ex`,
-      height: `${height * 3}ex`,
-    };
-
-    svg2img(svgString, args, function(error: Error, buffer: Buffer) {
-      if (error) {
-        return reject(error);
-      }
-      resolve(buffer);
-    });
-  });
-}
 
 // math parser
 app.get('/', async function(req, res, next) {
@@ -107,5 +62,4 @@ app.get('/', function(req, res) {
   res.redirect(301, '/home');
 });
 
-// app.listen();
 export default app;
