@@ -2679,14 +2679,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mathjax-full@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.0.1.tgz#e9f7213fe75ab29dbbf52f141037a845a89b797e"
-  integrity sha512-KE4z2FF9PzKIHnK0HsMkThqLaOi+2DqN2T+QqqP465+vmCzftZyqXr7e6fp60xPC4nXTeMM1rcbBQJ9yjqwPAw==
+mathjax-full@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.0.5.tgz#f8d08965b318b9e1f830fde6ae7caa731797b393"
+  integrity sha512-RzZ03DDMOgqeHPl3dkqDVS3bmXU+lfZZimj7+k3VA+s93LbZcOAKa2hlILF3rgBXgzGLR3YOR8Z8R/B3uAeAeA==
   dependencies:
     esm "^3.2.25"
     mj-context-menu "^0.2.2"
-    speech-rule-engine "^3.0.0-beta.8"
+    speech-rule-engine "^3.0.0-beta.10"
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -3514,10 +3514,10 @@ source-map@^0.7.3:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
-speech-rule-engine@^3.0.0-beta.8:
-  version "3.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/speech-rule-engine/-/speech-rule-engine-3.0.0-beta.8.tgz#f6b9ffc80f36bcdf95fff4bc3103ec20ba1373a2"
-  integrity sha512-gnNap93Xrz5ngIqa/BOaJGatC64B7dqDrXK/pr4yAaZAcW6tKVO5PwaTvw9QqVab86ad5scpA39Nxwhlb11tTg==
+speech-rule-engine@^3.0.0-beta.10:
+  version "3.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/speech-rule-engine/-/speech-rule-engine-3.0.0-beta.10.tgz#576a8674a394f9a9960ba1da981835946c4a1a44"
+  integrity sha512-/NvZ3NYh5F03G2Yrzzypp/rBq2H4/hL+OhtuY6pMNtEoMc7RHktVfqCl6o+N34Z91CTaebOAh6KZT+PjAdcCTw==
   dependencies:
     commander "*"
     wicked-good-xpath "*"
