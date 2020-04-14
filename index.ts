@@ -1,14 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
-import { tex2svg } from './adaptor';
+import {tex2svg} from './adaptor';
 
 const app = express();
 
 app.use(helmet());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('*', async function(req, res, next) {
+app.get('*', async function (req, res, next) {
   const mode = Object.keys(req.query).includes('from')
     ? 'block'
     : Object.keys(req.query).includes('inline')
@@ -42,13 +42,15 @@ app.get('*', async function(req, res, next) {
     res.end(svgString);
   } catch (err) {
     res.status(500);
-    res.write('<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">');
+    res.write(
+      '<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15">',
+    );
     res.write(err);
     res.end('</text></svg>');
   }
 });
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.redirect(301, '/home');
 });
 
