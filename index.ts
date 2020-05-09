@@ -6,7 +6,7 @@ import {tex2svg} from './adaptor';
 const app = express();
 
 app.use(helmet());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('*', async function (req, res, next) {
   const mode = Object.keys(req.query).includes('from')
@@ -18,12 +18,14 @@ app.get('*', async function (req, res, next) {
     return next();
   }
   const isInline = mode === 'inline';
-  const equation = isInline ? req.query.inline : req.query.from;
+  const equation = isInline
+    ? (req.query.inline as string)
+    : (req.query.from as string);
   if (!equation || equation.match(/\.ico$/)) {
     return next();
   }
 
-  const color = req.query.color || 'black';
+  const color = (req.query.color as string) || 'black';
   if (/[^a-zA-Z0-9#]/.test(color)) {
     return next();
   }
