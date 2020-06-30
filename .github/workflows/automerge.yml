@@ -25,6 +25,7 @@ jobs:
         uses: 'pascalgn/automerge-action@master'
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          UPDATE_LABELS: 'disable'
           MERGE_FILTER_AUTHOR: 'dependabot'
-          MERGE_METHOD: 'squash'
+          MERGE_METHOD: 'rebase'
           MERGE_LABELS: ''
