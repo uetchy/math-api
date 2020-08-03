@@ -549,10 +549,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@now/node@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@now/node/-/node-1.7.2.tgz#a0ddb5df9176738f438aa76af2ab204967c58008"
-  integrity sha512-jFYA1L/vrpVUTiHc3YoHW+S9GYYnl+TI6Ej+03a88QWq2bt4WuEhJk1GEfM8tC68rd2V8xgKGBIPKaVK2retAQ==
+"@now/node@^1.7.4":
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/@now/node/-/node-1.7.4.tgz#ba7bbab4a8f79b340d7b3cfb199cccf97cf21bc0"
+  integrity sha512-lOOzIYCPEo4u0L508BXD78vNyTyQZcsNnuKEwmKJV6zySZpyGTWHF7ZVYdM5OytxvZo3LgTJ0TXmXN0c365iSg==
   dependencies:
     "@types/node" "*"
     ts-node "8.9.1"
