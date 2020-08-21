@@ -13,7 +13,7 @@
     "body-parser": "^1.19.0",
     "corser": "^2.0.1",
     "express": "^4.17.1",
-    "helmet": "^4.0.0",
+    "helmet": "^4.1.0",
     "mathjax-full": "^3.0.5"
   },
   "devDependencies": {
