@@ -17,7 +17,7 @@
     "mathjax-full": "^3.0.5"
   },
   "devDependencies": {
-    "@now/node": "^1.7.4",
+    "@now/node": "^1.8.1",
     "@types/express": "^4.17.7",
     "@types/helmet": "^0.0.48",
     "@types/jest": "^26.0.10",
