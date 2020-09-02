@@ -1351,10 +1351,10 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@*:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
-  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
+commander@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
+  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
 
 component-emitter@^1.2.0, component-emitter@^1.2.1:
   version "1.3.0"
@@ -3343,14 +3343,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mathjax-full@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.0.5.tgz#f8d08965b318b9e1f830fde6ae7caa731797b393"
-  integrity sha512-RzZ03DDMOgqeHPl3dkqDVS3bmXU+lfZZimj7+k3VA+s93LbZcOAKa2hlILF3rgBXgzGLR3YOR8Z8R/B3uAeAeA==
+mathjax-full@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.1.0.tgz#8d6b62d19d3ed1ae72b0e2b0a7012576249ea415"
+  integrity sha512-UFHSIHZl6gsEBxk8ZNVLE62zYfkMp5ekAUmLQBVQ58H6SQK2oLFWiZo5jTlR14L6Xa6sdljdG0wCIBxa6TupeQ==
   dependencies:
     esm "^3.2.25"
-    mj-context-menu "^0.2.2"
-    speech-rule-engine "^3.0.0-beta.10"
+    mj-context-menu "^0.6.1"
+    speech-rule-engine "^3.1.0"
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -3441,10 +3441,10 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mj-context-menu@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/mj-context-menu/-/mj-context-menu-0.2.2.tgz#446647475e22c6d83f7c6ff4afa37e66fd280784"
-  integrity sha512-OHlnKQqfFPEYZGdz2JWL0obrr82vVilha0WCUZslYfN+v+oz4VpmERnoHdTUWvOUVHNYjFkpOYnLEeHnt1BdsQ==
+mj-context-menu@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/mj-context-menu/-/mj-context-menu-0.6.1.tgz#a043c5282bf7e1cf3821de07b13525ca6f85aa69"
+  integrity sha512-7NO5s6n10TIV96d4g2uDpG7ZDpIhMh0QNfGdJw/W47JswFcosz457wqz/b5sAKvl12sxINGFCn80NZHKwxQEXA==
 
 mkdirp@0.x:
   version "0.5.5"
@@ -4262,13 +4262,13 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
   integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
 
-speech-rule-engine@^3.0.0-beta.10:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/speech-rule-engine/-/speech-rule-engine-3.0.0.tgz#f470e7f8c94ff0a3e3372ce4903c803ed8b125fd"
-  integrity sha512-6j47ED+37qT5F4/GXNbwRAXMrr4fr/MDoab5pho/fu3F7JSJGOCvTWGTncgNfkIIdSP55PqIh7JBWRs0dzLscQ==
+speech-rule-engine@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/speech-rule-engine/-/speech-rule-engine-3.1.0.tgz#33af09185d77dad7b7aaebc20ed62608af25f14e"
+  integrity sha512-MTxAPDITRDbc3QMe8BJHOXM0cX9iCEPD3fW/soVMR3o5PA+MOLEN1eoyfgbfYcZQs+iB/y9zw7frbCqATAF+wA==
   dependencies:
-    commander "*"
-    wicked-good-xpath "*"
+    commander "^6.0.0"
+    wicked-good-xpath "^1.3.0"
     xmldom-sre "^0.1.31"
 
 split-string@^3.0.1, split-string@^3.0.2:
@@ -4814,7 +4814,7 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-wicked-good-xpath@*:
+wicked-good-xpath@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/wicked-good-xpath/-/wicked-good-xpath-1.3.0.tgz#81b0e95e8650e49c94b22298fff8686b5553cf6c"
   integrity sha1-gbDpXoZQ5JyUsiKY//hoa1VTz2w=
