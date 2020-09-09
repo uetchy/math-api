@@ -1,16 +1,15 @@
 {
-  "alias": "math.now.sh",
   "builds": [
     {
       "src": "index.ts",
-      "use": "@now/node",
+      "use": "@vercel/node",
       "config": {
         "maxLambdaSize": "50mb"
       }
     },
     {
       "src": "index.html",
-      "use": "@now/static"
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -27,8 +26,6 @@
     }
   ],
   "github": {
-    "enabled": true,
-    "autoAlias": false,
     "silent": true
   }
 }
