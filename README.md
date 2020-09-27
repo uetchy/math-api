@@ -2,8 +2,8 @@
 
 [![workflow-badge]][workflow-url]
 
-[workflow-badge]: https://github.com/uetchy/math-api/workflows/Math%20API/badge.svg
-[workflow-url]: https://github.com/uetchy/math-api/actions?workflow=Math%20API
+[workflow-badge]: https://github.com/uetchy/math-api/workflows/test/badge.svg
+[workflow-url]: https://github.com/uetchy/math-api/actions?workflow=test
 
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
