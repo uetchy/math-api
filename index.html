@@ -3,8 +3,28 @@
     <title>Math API</title>
     <meta name="viewport" content="width=device-width" />
     <style>
+      :root {
+        --bg: white;
+        --text: black;
+        --accent: rgb(94, 5, 255);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #040b31;
+          --text: white;
+          --accent: rgb(75 196 255);
+        }
+      }
+
       body {
+        background: var(--bg);
+        color: var(--text);
         padding: 15px;
+      }
+
+      a:link, a:visited, a:hover, a:active {
+        color: var(--text);
       }
 
       @media screen and (max-width: 600px) {
@@ -25,7 +45,7 @@
 
       .equation {
         font-weight: bold;
-        color: rgb(94, 5, 255);
+        color: var(--accent);
       }
 
       h1,
@@ -42,6 +62,9 @@
         height: 120px;
         padding: 16px;
         font-size: 15px;
+        border: none;
+        background: var(--text);
+        color: var(--bg);
       }
 
       .responseField {
@@ -50,6 +73,9 @@
         padding: 16px;
         font-size: 14px;
         font-family: monospace;
+        border: 2px solid var(--accent);
+        background: var(--bg);
+        color: var(--accent);
       }
     </style>
   </head>
@@ -64,12 +90,15 @@
       </p>
       <h2>Usage</h2>
       <p style="font-size: 20px">
-        https://math.now.sh?from=<span class="equation">[LaTeX Math Equation]</span>
+        https://math.now.sh?from=<span class="equation"
+          >[LaTeX Math Equation]</span
+        >
       </p>
 
       <h3>Block notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">from</span>=<span class="equation"
+        https://math.now.sh?<span class="notation">from</span>=<span
+          class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
       </p>
@@ -79,7 +108,8 @@
 
       <h3>Inline notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">inline</span>=<span class="equation"
+        https://math.now.sh?<span class="notation">inline</span>=<span
+          class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
       </p>
@@ -89,50 +119,65 @@
 
       <h3>Color</h3>
       <p>
-        https://math.now.sh?from=<span class="equation">\sum</span>&<span class="notation"
-          >color=red</span
+        By default, the color of equation will be black in light theme, and
+        white in dark theme. You can manually change this behavior by passing
+        `color` and `alternateColor` parameters.
+      </p>
+      <p>
+        https://math.now.sh?from=\sum&<span class="equation">color</span>=<span
+          class="notation"
+          >red</span
         >
       </p>
       <img src="/?from=\sum&color=red" />
 
+      <p>
+        https://math.now.sh?from=\sum</span>&<span
+          class="equation"
+          >color</span>=<span class="notation">red</span
+        >&<span class="equation">alternateColor</span>=<span class="notation">cyan</span>
+      </p>
+      <img src="/?from=\sum&color=red&alternateColor=cyan" />
+
       <h2>HTML Example</h2>
       <a href="https://codesandbox.io/s/2w223oq5lr">
-        <img alt="Edit 2w223oq5lr" src="https://codesandbox.io/static/img/play-codesandbox.svg" />
+        <img
+          alt="Edit 2w223oq5lr"
+          src="https://codesandbox.io/static/img/play-codesandbox.svg"
+        />
       </a>
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span>=<span
-          class="equation"
-          >\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span
+        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
       </p>
       <img src="/?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation">inline</span>=<span
-          class="equation"
-          >\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
+        &lt;img src=&quot;https://math.now.sh?<span class="notation"
+          >inline</span
+        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
       </p>
       <img src="/?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <h2>Markdown Example</h2>
       <p>
-        ![Equation 1](https://math.now.sh?<span class="notation">from</span>=<span class="equation"
-          >\text{softplus}(x)=\log(1+e^x)</span
-        >)
+        ![Equation 1](https://math.now.sh?<span class="notation">from</span
+        >=<span class="equation">\text{softplus}(x)=\log(1+e^x)</span>)
       </p>
       <img src="/?from=%5Ctext%7Bsoftplus%7D(x)%3D%5Clog(1%2Be%5Ex)" />
 
       <h2 id="online-editor">Online Editor</h2>
-      <textarea id="request" onKeyup="onTextChanged(this)">\LaTeX</textarea>
+      <textarea id="request" onKeyup="onTextChanged(this)">\text{Edit this}\ \LaTeX</textarea>
       <div>
         <h3>Preview</h3>
-        <img id="responseImage" src="/?from=\LaTeX" />
+        <img id="responseImage" src="/?from=\text{Edit this}\%20\LaTeX" />
         <h3>HTML</h3>
         <input
           id="responseHTML"
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value='&lt;img src="https://math.now.sh?from=%5CLaTeX" /&gt;'
+          value='&lt;img src="https://math.now.sh?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX" /&gt;'
         />
         <h3>Markdown</h3>
         <input
@@ -140,7 +185,7 @@
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value="![Equation](https://math.now.sh?from=%5CLaTeX)"
+          value="![Equation](https://math.now.sh?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX)"
         />
         <h3>URL</h3>
         <input
@@ -155,37 +200,39 @@
       <script>
         function onTextChanged(e) {
           const value = e.value;
-          const responseHTML = document.querySelector('#responseHTML');
-          const responseMarkdown = document.querySelector('#responseMarkdown');
-          const responseImage = document.querySelector('#responseImage');
+          const responseHTML = document.querySelector("#responseHTML");
+          const responseMarkdown = document.querySelector("#responseMarkdown");
+          const responseImage = document.querySelector("#responseImage");
           const purifiedURL =
-            'https://math.now.sh?from=' +
-            encodeURIComponent(value)
-              .replace('(', '%28')
-              .replace(')', '%29');
+            "https://math.now.sh?from=" +
+            encodeURIComponent(value).replace("(", "%28").replace(")", "%29");
           responseHTML.value = '<img src="' + purifiedURL + '" />';
-          responseMarkdown.value = '![Equation](' + purifiedURL + ')';
+          responseMarkdown.value = "![Equation](" + purifiedURL + ")";
           responseURL.value = purifiedURL;
           responseImage.src = purifiedURL;
         }
       </script>
       <h2>Resources</h2>
-      <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a><br />
+      <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a
+      ><br />
       <a href="https://twitter.com/uechz">Author (Twitter)</a><br />
       <a href="https://dev.to/uetchy/math-api-latex-math-as-svg-image-m4p"
         >Math API: LaTeX Math as SVG image - DEV Community 👩‍💻👨‍💻</a
       ><br />
     </div>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-28919359-16"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-28919359-16"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
+      gtag("js", new Date());
 
-      gtag('config', 'UA-28919359-16');
+      gtag("config", "UA-28919359-16");
     </script>
   </body>
 </html>
