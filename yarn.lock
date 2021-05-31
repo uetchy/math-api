@@ -681,10 +681,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@vercel/node@^1.9.1":
-  version "1.9.1"
-  resolved "https://registry.npmjs.org/@vercel/node/-/node-1.9.1.tgz#55c079a469208560fd3f9f186cb68a504c4a10a1"
-  integrity sha512-sZIEk6UtJhbW4qRSCTnTWnGOT7UR6ZrhhSvK6z9AAS/BRc+Jz1/nbwPlYjT7HjZySo32VAwpeq2VHOd3hyxKGw==
+"@vercel/node@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-1.11.0.tgz#2c34e4cab9dfaf8a796a0b590b20d2f6cf222749"
+  integrity sha512-GmEUuOloy6Pdy5Qj5Zm7HmxcO/5VRLG99WUg15V7GD0fKq3sJtnCnzy4f1+9fpVbQGMefjy+pY1dWUhkB6YEGA==
   dependencies:
     "@types/node" "*"
     ts-node "8.9.1"
