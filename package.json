@@ -14,7 +14,7 @@
     "corser": "^2.0.1",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
-    "mathjax-full": "^3.1.2"
+    "mathjax-full": "^3.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
