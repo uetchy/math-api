@@ -23,7 +23,10 @@
         padding: 15px;
       }
 
-      a:link, a:visited, a:hover, a:active {
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
         color: var(--text);
       }
 
@@ -63,8 +66,9 @@
         padding: 16px;
         font-size: 15px;
         border: none;
-        background: var(--text);
+        background: var(--accent);
         color: var(--bg);
+        border-radius: 4px;
       }
 
       .responseField {
@@ -79,6 +83,20 @@
       }
     </style>
   </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (/Safari/.test(navigator.userAgent)) {
+        const style = document.createElement("style");
+        style.innerHTML = `
+:root {
+  --bg: white;
+  --text: black;
+  --accent: rgb(94, 5, 255);
+}`;
+        document.body.appendChild(style);
+      }
+    });
+  </script>
   <body style="font-family: monospace">
     <div class="main">
       <h1>Math API</h1>
@@ -119,9 +137,9 @@
 
       <h3>Color</h3>
       <p>
-        By default, the color of equation will be black in light theme, or
-        white in dark theme. You can manually change this behavior by passing
-        `color` and `alternateColor` parameters.
+        By default, the color of equation will be black in light theme, or white
+        in dark theme. You can manually change this behavior by passing `color`
+        and `alternateColor` parameters.
       </p>
       <p>
         https://math.now.sh?from=\sum&<span class="equation">color</span>=<span
@@ -132,10 +150,12 @@
       <img src="/?from=\sum&color=red" />
 
       <p>
-        https://math.now.sh?from=\sum</span>&<span
-          class="equation"
-          >color</span>=<span class="notation">red</span
-        >&<span class="equation">alternateColor</span>=<span class="notation">cyan</span>
+        https://math.now.sh?from=\sum&<span class="equation">color</span>=<span
+          class="notation"
+          >red</span
+        >&<span class="equation">alternateColor</span>=<span class="notation"
+          >cyan</span
+        >
       </p>
       <img src="/?from=\sum&color=red&alternateColor=cyan" />
 
@@ -167,7 +187,9 @@
       <img src="/?from=%5Ctext%7Bsoftplus%7D(x)%3D%5Clog(1%2Be%5Ex)" />
 
       <h2 id="online-editor">Online Editor</h2>
-      <textarea id="request" onKeyup="onTextChanged(this)">\text{Edit this}\ \LaTeX</textarea>
+      <textarea id="request" onKeyup="onTextChanged(this)">
+\text{Edit this}\ \LaTeX</textarea
+      >
       <div>
         <h3>Preview</h3>
         <img id="responseImage" src="/?from=\text{Edit this}\%20\LaTeX" />
@@ -205,7 +227,9 @@
           const responseImage = document.querySelector("#responseImage");
           const purifiedURL =
             "https://math.now.sh?from=" +
-            encodeURIComponent(value).replace(/\(/g, "%28").replace(/\)/g, "%29");
+            encodeURIComponent(value)
+              .replace(/\(/g, "%28")
+              .replace(/\)/g, "%29");
           responseHTML.value = '<img src="' + purifiedURL + '" />';
           responseMarkdown.value = "![Equation](" + purifiedURL + ")";
           responseURL.value = purifiedURL;
