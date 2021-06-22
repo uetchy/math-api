@@ -1,12 +1,12 @@
 import express from "express";
-import bodyParser from "body-parser";
+import { urlencoded } from "body-parser";
 import helmet from "helmet";
 import { tex2svg } from "./adaptor";
 
 const app = express();
 
 app.use(helmet());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(urlencoded({ extended: false }));
 
 app.get("*", async function (req, res, next) {
   const mode = Object.keys(req.query).includes("from")
