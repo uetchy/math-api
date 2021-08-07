@@ -44,7 +44,7 @@ app.get("*", async function (req, res, next) {
       alternateColor
     );
 
-    res.setHeader("cache-control", "s-maxage=604800, maxage=604800");
+    res.setHeader("cache-control", "s-maxage=604800, max-age=604800");
     res.contentType("image/svg+xml");
     res.write(`<?xml version="1.0" standalone="no" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
