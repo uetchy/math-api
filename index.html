@@ -91,7 +91,10 @@
   </head>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      if (/Safari/.test(navigator.userAgent)) {
+      if (
+        /Safari/.test(navigator.userAgent) &&
+        !/Chrome/.test(navigator.userAgent)
+      ) {
         const style = document.createElement("style");
         style.innerHTML = `
 :root {
