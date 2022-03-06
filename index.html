@@ -117,14 +117,14 @@
       </p>
       <h2>Usage</h2>
       <p style="font-size: 20px">
-        https://math.now.sh?from=<span class="equation"
+        https://math.vercel.app?from=<span class="equation"
           >[LaTeX Math Equation]</span
         >
       </p>
 
       <h3>Block notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">from</span>=<span
+        https://math.vercel.app?<span class="notation">from</span>=<span
           class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
@@ -135,7 +135,7 @@
 
       <h3>Inline notation</h3>
       <p>
-        https://math.now.sh?<span class="notation">inline</span>=<span
+        https://math.vercel.app?<span class="notation">inline</span>=<span
           class="equation"
           >\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u</span
         >
@@ -151,7 +151,7 @@
         and `alternateColor` parameters.
       </p>
       <p>
-        https://math.now.sh?from=\sum&<span class="equation">color</span>=<span
+        https://math.vercel.app?from=\sum&<span class="equation">color</span>=<span
           class="notation"
           >red</span
         >
@@ -159,7 +159,7 @@
       <img src="/?from=\sum&color=red" />
 
       <p>
-        https://math.now.sh?from=\sum&<span class="equation">color</span>=<span
+        https://math.vercel.app?from=\sum&<span class="equation">color</span>=<span
           class="notation"
           >red</span
         >&<span class="equation">alternateColor</span>=<span class="notation"
@@ -176,13 +176,13 @@
         />
       </a>
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation">from</span
+        &lt;img src=&quot;https://math.vercel.app?<span class="notation">from</span
         >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
       </p>
       <img src="/?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <p>
-        &lt;img src=&quot;https://math.now.sh?<span class="notation"
+        &lt;img src=&quot;https://math.vercel.app?<span class="notation"
           >inline</span
         >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
         >&quot; /&gt;
@@ -190,7 +190,7 @@
       <img src="/?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
       <h2>Markdown Example</h2>
       <p>
-        ![Equation 1](https://math.now.sh?<span class="notation">from</span
+        ![Equation 1](https://math.vercel.app?<span class="notation">from</span
         >=<span class="equation">\text{softplus}(x)=\log(1+e^x)</span>)
       </p>
       <img src="/?from=%5Ctext%7Bsoftplus%7D(x)%3D%5Clog(1%2Be%5Ex)" />
@@ -208,7 +208,7 @@
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value='&lt;img src="https://math.now.sh?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX" /&gt;'
+          value='&lt;img src="https://math.vercel.app?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX" /&gt;'
         />
         <h3>Markdown</h3>
         <input
@@ -216,7 +216,7 @@
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value="![Equation](https://math.now.sh?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX)"
+          value="![Equation](https://math.vercel.app?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX)"
         />
         <h3>URL</h3>
         <input
@@ -224,7 +224,7 @@
           class="responseField"
           readonly="true"
           onClick="setTimeout(function(){this.setSelectionRange(0, 9999)},1)"
-          value="https://math.now.sh?from=%5CLaTeX"
+          value="https://math.vercel.app?from=%5CLaTeX"
         />
       </div>
 
@@ -235,7 +235,7 @@
           const responseMarkdown = document.querySelector("#responseMarkdown");
           const responseImage = document.querySelector("#responseImage");
           const purifiedURL =
-            "https://math.now.sh?from=" +
+            "https://math.vercel.app?from=" +
             encodeURIComponent(value)
               .replace(/\(/g, "%28")
               .replace(/\)/g, "%29");

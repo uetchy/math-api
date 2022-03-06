@@ -7,36 +7,36 @@
 
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
-- https://math.now.sh
-- [Online Editor](https://math.now.sh/#online-editor)
+- https://math.vercel.app
+- [Online Editor](https://math.vercel.app/#online-editor)
 
 ## Usage
 
 ```
-curl https://math.now.sh?from=\sum^{N}_{i}x_i
+curl https://math.vercel.app?from=\sum^{N}_{i}x_i
 ```
 
 ### HTML
 
 ```
-<img src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 ```
 
-<img src="https://math.now.sh?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 
 ```
-<img src="https://math.now.sh?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 ```
 
-<img src="https://math.now.sh?inline=\log\prod^N_{i}x_i=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?inline=\log\prod^N_{i}x_i=\sum^N_i\log{x_i}" />
     
 ### Markdown
 
 ```
-![](https://math.now.sh?from=\LaTeX)
+![](https://math.vercel.app?from=\LaTeX)
 ```
 
-![Equation 1](https://math.now.sh?from=\LaTeX)
+![Equation 1](https://math.vercel.app?from=\LaTeX)
 
 ## Option
 
