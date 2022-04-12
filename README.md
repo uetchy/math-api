@@ -13,30 +13,30 @@ Place LaTeX Math equation on anywhere as `<img>` tag.
 ## Usage
 
 ```
-curl https://math.vercel.app?from=\sum^{N}_{i}x_i
+curl https://math.vercel.app?bgcolor=auto&from=\sum^{N}_{i}x_i
 ```
 
 ### HTML
 
 ```
-<img src="https://math.vercel.app?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?bgcolor=auto&from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 ```
 
-<img src="https://math.vercel.app?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?bgcolor=auto&from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 
 ```
-<img src="https://math.vercel.app?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?bgcolor=auto&inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
 ```
 
-<img src="https://math.vercel.app?inline=\log\prod^N_{i}x_i=\sum^N_i\log{x_i}" />
+<img src="https://math.vercel.app?bgcolor=auto&inline=\log\prod^N_{i}x_i=\sum^N_i\log{x_i}" />
     
 ### Markdown
 
 ```
-![](https://math.vercel.app?from=\LaTeX)
+![](https://math.vercel.app?bgcolor=auto&from=\LaTeX)
 ```
 
-![Equation 1](https://math.vercel.app?from=\LaTeX)
+![Equation 1](https://math.vercel.app?bgcolor=auto&from=\LaTeX)
 
 ## Option
 
