@@ -4,6 +4,12 @@ import { SVG } from "mathjax-full/js/output/svg";
 import { LiteAdaptor } from "mathjax-full/js/adaptors/liteAdaptor";
 import { RegisterHTMLHandler } from "mathjax-full/js/handlers/html";
 import { AllPackages } from "mathjax-full/js/input/tex/AllPackages";
+import { colord, extend } from "colord";
+import harmoniesPlugin from "colord/plugins/harmonies";
+import namesPlugin from "colord/plugins/names";
+
+// Colord bootstrap
+extend([namesPlugin, harmoniesPlugin]);
 
 // MathJax bootstrap
 const adaptor = new LiteAdaptor();
@@ -17,9 +23,12 @@ const html = mathjax.document("", {
 export function tex2svg(
   equation: string,
   isInline: boolean,
-  color?: string,
-  alternateColor?: string
+  color: string = "black",
+  bgColor?: string
 ): string {
+  const autoBg = colord(color).isDark() ? "white" : "black";
+  const bg = bgColor === "auto" ? autoBg : bgColor;
+
   const svg = adaptor
     .innerHTML(html.convert(equation, { display: !isInline }))
     .replace(
@@ -27,12 +36,8 @@ export function tex2svg(
       `
 <style>
   * {
-    fill: ${color || "black"};
-  }
-  @media (prefers-color-scheme: dark) {
-    * {
-      fill: ${alternateColor || color || "white"};
-    }
+    fill: ${color};
+    background-color: ${bg ?? "transparent"};
   }
 </style>`
     );

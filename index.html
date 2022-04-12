@@ -9,13 +9,13 @@
         --accent: rgb(94, 5, 255);
       }
 
-      @media (prefers-color-scheme: dark) {
+      /* @media (prefers-color-scheme: dark) {
         :root {
           --bg: #040b31;
           --text: white;
           --accent: rgb(75 196 255);
         }
-      }
+      } */
 
       body {
         background: var(--bg);
@@ -60,15 +60,18 @@
         margin-top: 30px;
       }
 
-      #request {
-        width: 100%;
-        height: 120px;
+      .input-field {
         padding: 16px;
         font-size: 15px;
         border: none;
         background: var(--accent);
-        color: var(--bg);
+        color: var(--bg) !important;
         border-radius: 4px;
+      }
+
+      #request {
+        width: 100%;
+        height: 120px;
       }
 
       .responseField {
@@ -89,23 +92,6 @@
       src="https://analytics.uechi.io/umami.js"
     ></script>
   </head>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (
-        /Safari/.test(navigator.userAgent) &&
-        !/Chrome/.test(navigator.userAgent)
-      ) {
-        const style = document.createElement("style");
-        style.innerHTML = `
-:root {
-  --bg: white;
-  --text: black;
-  --accent: rgb(94, 5, 255);
-}`;
-        document.body.appendChild(style);
-      }
-    });
-  </script>
   <body style="font-family: monospace">
     <div class="main">
       <h1>Math API</h1>
@@ -146,69 +132,66 @@
 
       <h3>Color</h3>
       <p>
-        By default, the color of equation will be black in light theme, or white
-        in dark theme. You can manually change this behavior by passing `color`
-        and `alternateColor` parameters.
+        By default, the text color is black. You can manually change this
+        behavior by passing `color` parameter.
       </p>
       <p>
-        https://math.vercel.app?from=\sum&<span class="equation">color</span>=<span
+        https://math.vercel.app?<span class="equation">color</span>=<span
           class="notation"
           >red</span
-        >
+        >&from=\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u
       </p>
-      <img src="/?from=\sum&color=red" />
+      <img
+        src="/?from=\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u&color=red"
+      />
 
+      <h3>Background Color</h3>
       <p>
-        https://math.vercel.app?from=\sum&<span class="equation">color</span>=<span
+        By default, the background is transparent. You can manually change this
+        behavior by passing `bgcolor` parameter. `auto`
+      </p>
+      <p>
+        https://math.vercel.app?<span class="equation">color</span>=<span
           class="notation"
-          >red</span
-        >&<span class="equation">alternateColor</span>=<span class="notation"
-          >cyan</span
-        >
+          >white</span
+        >&<span class="equation">bgcolor</span>=<span class="notation"
+          >auto</span
+        >&from=\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u
       </p>
-      <img src="/?from=\sum&color=red&alternateColor=cyan" />
-
-      <h2>HTML Example</h2>
-      <a href="https://codesandbox.io/s/2w223oq5lr">
-        <img
-          alt="Edit 2w223oq5lr"
-          src="https://codesandbox.io/static/img/play-codesandbox.svg"
-        />
-      </a>
-      <p>
-        &lt;img src=&quot;https://math.vercel.app?<span class="notation">from</span
-        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
-        >&quot; /&gt;
-      </p>
-      <img src="/?from=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
-      <p>
-        &lt;img src=&quot;https://math.vercel.app?<span class="notation"
-          >inline</span
-        >=<span class="equation">\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}</span
-        >&quot; /&gt;
-      </p>
-      <img src="/?inline=\log\prod^N_{i}x_{i}=\sum^N_i\log{x_i}" />
-      <h2>Markdown Example</h2>
-      <p>
-        ![Equation 1](https://math.vercel.app?<span class="notation">from</span
-        >=<span class="equation">\text{softplus}(x)=\log(1+e^x)</span>)
-      </p>
-      <img src="/?from=%5Ctext%7Bsoftplus%7D(x)%3D%5Clog(1%2Be%5Ex)" />
+      <img
+        src="/?from=\frac{1}{\Gamma(s)}\int_{0}^{\infty}\frac{u^{s-1}}{e^{u}-1}\mathrm{d}u&color=white&bgcolor=auto"
+      />
 
       <h2 id="online-editor">Online Editor</h2>
-      <textarea id="request" onKeyup="onTextChanged(this)">
+      <textarea id="request" class="input-field" onKeyup="onTextChanged(this)">
 \text{Edit this}\ \LaTeX</textarea
-      >
+      ><br /><br />
+      <div style="text-align: right">
+        <label>Text: </label
+        ><input
+          id="color"
+          class="input-field"
+          onKeyup="onColorChanged(this)"
+          placeholder="CSS color name"
+        /><br /><br />
+        <label>Background: </label
+        ><input
+          id="bgColor"
+          class="input-field"
+          onKeyup="onBackgroundColorChanged(this)"
+          value="auto"
+          placeholder="auto or CSS color name"
+        />
+      </div>
       <div>
         <h3>Preview</h3>
-        <img id="responseImage" src="/?from=\text{Edit this}\%20\LaTeX" />
+        <img id="responseImage" src="/?from=\text{Edit this}\%20\LaTeX.svg" />
         <h3>HTML</h3>
         <input
           id="responseHTML"
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value='&lt;img src="https://math.vercel.app?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX" /&gt;'
         />
         <h3>Markdown</h3>
         <input
@@ -216,34 +199,84 @@
           class="responseField"
           readonly="true"
           onClick="this.select();"
-          value="![Equation](https://math.vercel.app?from=%5Ctext%7BEdit%20this%7D%20%5CLaTeX)"
         />
         <h3>URL</h3>
         <input
           id="responseURL"
           class="responseField"
           readonly="true"
-          onClick="setTimeout(function(){this.setSelectionRange(0, 9999)},1)"
-          value="https://math.vercel.app?from=%5CLaTeX"
+          onClick="this.select();"
         />
       </div>
 
       <script>
-        function onTextChanged(e) {
-          const value = e.value;
-          const responseHTML = document.querySelector("#responseHTML");
-          const responseMarkdown = document.querySelector("#responseMarkdown");
-          const responseImage = document.querySelector("#responseImage");
+        var equation = "\\text{Edit this}\\ \\LaTeX";
+        var color = "";
+        var bgColor = "";
+
+        const responseHTML = document.querySelector("#responseHTML");
+        const responseMarkdown = document.querySelector("#responseMarkdown");
+        const responseImage = document.querySelector("#responseImage");
+        const colorElement = document.querySelector("#color");
+        const bgColorElement = document.querySelector("#bgColor");
+
+        var timer;
+
+        function render() {
           const purifiedURL =
-            "https://math.vercel.app?from=" +
-            encodeURIComponent(value)
+            location.origin +
+            "/?" +
+            (color ? "color=" + encodeURIComponent(color) + "&" : "") +
+            (bgColor ? "bgcolor=" + encodeURIComponent(bgColor) + "&" : "") +
+            "from=" +
+            encodeURIComponent(equation)
               .replace(/\(/g, "%28")
-              .replace(/\)/g, "%29");
+              .replace(/\)/g, "%29") +
+            ".svg";
           responseHTML.value = '<img src="' + purifiedURL + '" />';
           responseMarkdown.value = "![Equation](" + purifiedURL + ")";
           responseURL.value = purifiedURL;
           responseImage.src = purifiedURL;
         }
+
+        function onTextChanged(e) {
+          equation = e.value;
+          clearTimeout(timer);
+          timer = setTimeout(() => render(), 1000);
+        }
+
+        function onColorChanged(e) {
+          color = e.value;
+          clearTimeout(timer);
+          timer = setTimeout(() => render(), 1000);
+        }
+
+        function onBackgroundColorChanged(e) {
+          bgColor = e.value;
+          clearTimeout(timer);
+          timer = setTimeout(() => render(), 1000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          //           const isSafari =
+          //             /Safari/.test(navigator.userAgent) &&
+          //             !/Chrome/.test(navigator.userAgent);
+          //           if (isSafari) {
+          //             const style = document.createElement("style");
+          //             style.innerHTML = `
+          // :root {
+          //   --bg: white;
+          //   --text: black;
+          //   --accent: rgb(94, 5, 255);
+          // }`;
+          //             document.body.appendChild(style);
+          //           }
+
+          color = colorElement.value;
+          bgColor = bgColorElement.value;
+
+          render();
+        });
       </script>
       <h2>Resources</h2>
       <a href="https://github.com/uetchy/math-api">Source Code (GitHub)</a

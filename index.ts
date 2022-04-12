@@ -26,23 +26,19 @@ app.get("*", async function (req, res, next) {
   }
 
   const color = req.query.color as string | undefined;
-  const alternateColor = req.query.alternateColor as string | undefined;
-  if (
-    (color && /[^a-zA-Z0-9#]/.test(color)) ||
-    (alternateColor && /[^a-zA-Z0-9#]/.test(alternateColor))
-  ) {
+  const bgColor = req.query.bgcolor as string | undefined;
+
+  if (color && /[^a-zA-Z0-9#]/.test(color)) {
+    return next();
+  }
+  if (bgColor && /[^a-zA-Z0-9#]/.test(bgColor)) {
     return next();
   }
 
   const normalizedEquation = equation.replace(/\.(svg|png)$/, "");
 
   try {
-    const svgString = tex2svg(
-      normalizedEquation,
-      isInline,
-      color,
-      alternateColor
-    );
+    const svgString = tex2svg(normalizedEquation, isInline, color, bgColor);
 
     res.setHeader("cache-control", "s-maxage=604800, max-age=604800");
     res.contentType("image/svg+xml");
