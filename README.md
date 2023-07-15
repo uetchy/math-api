@@ -1,9 +1,12 @@
-# Math API
-
+[![Project status: active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![workflow-badge]][workflow-url]
+[![Project contributors](https://img.shields.io/github/contributors/uetchy/math-api)](https://github.com/uetchy/math-api/graphs/contributors)
+[![Project license](https://img.shields.io/github/license/uetchy/math-api)](https://github.com/uetchy/math-api/blob/master/LICENSE)
 
 [workflow-badge]: https://github.com/uetchy/math-api/workflows/test/badge.svg
 [workflow-url]: https://github.com/uetchy/math-api/actions?workflow=test
+
+# Math API
 
 Place LaTeX Math equation on anywhere as `<img>` tag.
 
